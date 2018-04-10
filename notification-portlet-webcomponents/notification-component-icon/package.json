@@ -28,7 +28,9 @@
   "scripts": {
     "precommit": "lint-staged",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build:react && npm run build:bundle",
+    "build:react": "react-scripts build",
+    "build:bundle": "webpack --config webpack.config.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

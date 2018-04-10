@@ -97,7 +97,7 @@ node {
 
 task copyWebComponentsJs(type: Copy, dependsOn: ':notification-portlet-webcomponents:yarn_build') {
     from("${rootProject.projectDir}/notification-portlet-webcomponents") {
-        include "*/build/static/js/*.js"
+        include "*/build/static/js/*.min.js"
         exclude "node_modules/**"
         eachFile { details ->
             logger.lifecycle("Adding web component to war file:  ${details}")
