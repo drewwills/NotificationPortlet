@@ -4,6 +4,8 @@ import 'reactive-elements';
 // register i18next
 import './i18n';
 
+import './styles.css';
+
 // register icons
 import fontawesome from '@fortawesome/fontawesome';
 import faBell from '@fortawesome/fontawesome-free-solid/faBell';

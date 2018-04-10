@@ -104,7 +104,7 @@ class NotificationIcon extends Component {
 
     return (
       <span className="up-notification--notification-count">
-        {count}
+        {count || ''}
         <span className="sr-only">{t('notification-count', {count})}</span>
       </span>
     );
@@ -142,7 +142,12 @@ class NotificationIcon extends Component {
 
   render = () => {
     const {t} = this.props;
-    const {isDropdownOpen} = this.state;
+    const {notifications, isDropdownOpen} = this.state;
+
+    const dropdownClasses = ['up-notification--toggle'];
+    if (notifications.length != 0) {
+        dropdownClasses.push('up-notification--toggle-active');
+    }
 
     return (
       <Dropdown
@@ -152,7 +157,7 @@ class NotificationIcon extends Component {
       >
         <DropdownToggle
           onClick={this.toggle}
-          className="up-notification--toggle"
+          className={dropdownClasses}
         >
           <FontAwesomeIcon icon="bell" />
           {this.renderNotificationCount()}
